@@ -47,14 +47,14 @@ export default function Menu() {
         <li className="hidden lg:block font-nunito text-white">
           <NavLink
             className="bg-[#C1121F] hover:bg-[#780000] p-[0.5rem] rounded-[0.5rem]"
-            to="#"
+            to="/register"
           >
             S'inscrire/Se connecter
           </NavLink>
         </li>
       </ul>
       <NavLink
-        to="#"
+        to="/register"
         className="flex-1 flex justify-end items-center lg:hidden"
       >
         <img
