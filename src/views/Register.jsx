@@ -3,7 +3,7 @@ import avengersTower from "../assets/img/avengersTower.png";
 
 export default function Register() {
   return (
-    <div className="lg:w-[100%] lg:h-[min-content] lg:rounded-[10rem] lg:rounded-[1rem] lg:flex lg:justify-center lg:mt-[12%]">
+    <div className="lg:w-[100%] lg:h-[min-content] lg:rounded-[10rem] lg:rounded-[1rem] lg:flex lg:justify-center lg:mt-[10%]">
       <div
         className="bg-cover bg-center h-[100vh] lg:h-[100%] relative lg:static lg:rounded-[1rem] lg:w-[40rem]"
         style={{ backgroundImage: `url(${avengersTower})` }}
