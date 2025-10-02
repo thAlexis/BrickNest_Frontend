@@ -25,8 +25,12 @@ const registerSchema = yup.object({
       /^[A-Za-z][A-Za-z0-9_-]*$/,
       "Le nom d'utilisateur doit commencer par une lettre"
     ),
-  mail: yup.email("Adresse mail invalide").required("Adresse mail obligatoire"),
+  mail: yup
+    .string()
+    .email("Adresse mail invalide")
+    .required("Adresse mail obligatoire"),
   password: yup
+    .string()
     .required("Le mot de passe est obligatoire")
     .min(8, "Le mot de passe doit contenir au moins 8 caractères")
     .matches(

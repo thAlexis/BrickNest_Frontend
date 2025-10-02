@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import avengersTower from "../assets/img/avengersTower.png";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import registerSchema from "../validators/register.validator.js";
 
 export default function Register() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(registerSchema), mode: "onBlur" });
+
+  console.log(errors.username);
+
   return (
     <div className="lg:w-[100%] lg:h-[min-content] lg:rounded-[10rem] lg:rounded-[1rem] lg:flex lg:justify-center lg:mt-[10%]">
       <div
@@ -20,10 +31,12 @@ export default function Register() {
                     Nom
                   </label>
                   <input
+                    {...register("lastname")}
                     className="bg-white text-black rounded-[0.5rem] p-[0.2rem] mb-[1rem] w-[100%]"
                     type="text"
                     name="lastname"
                   />
+                  {errors.lastname && <p>{errors.lastname.message}</p>}
                 </div>
                 <div className="flex flex-col items-center lg:items-start">
                   <label className="text-[1rem]" for="firstname">
@@ -32,8 +45,10 @@ export default function Register() {
                   <input
                     className="bg-white text-black rounded-[0.5rem] p-[0.2rem] mb-[1rem] w-[100%]"
                     type="text"
+                    {...register("firstname")}
                     name="firstname"
                   />
+                  {errors.firstname && <p>{errors.firstname.message}</p>}
                 </div>
               </div>
               <label className="text-[1rem] lg:self-start" for="username">
@@ -42,24 +57,30 @@ export default function Register() {
               <input
                 className="bg-white text-black rounded-[0.5rem] p-[0.2rem] mb-[1rem] w-[100%]"
                 type="text"
+                {...register("username")}
                 name="username"
               />
+              {errors.username && <p>{errors.username.message}</p>}
               <label className="text-[1rem] lg:self-start" for="mail">
                 Mail
               </label>
               <input
                 className="bg-white text-black rounded-[0.5rem] p-[0.2rem] mb-[1rem] w-[100%]"
                 type="mail"
+                {...register("mail")}
                 name="mail"
               />
+              {errors.mail && <p>{errors.mail.message}</p>}
               <label className="text-[1rem] lg:self-start" for="password">
                 Mot de passe
               </label>
               <input
                 className="bg-white text-black rounded-[0.5rem] p-[0.2rem] mb-[1rem] w-[100%]"
                 type="password"
+                {...register("password")}
                 name="password"
               />
+              {errors.password && <p>{errors.password.message}</p>}
               <button className="bg-[#003049] mt-[0.5rem] p-[1rem] rounded-[0.5rem] text-[1rem] hover:bg-[#669BBC] font-[700]">
                 S'inscrire
               </button>
