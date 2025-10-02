@@ -12,8 +12,8 @@ export default function Register() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({ resolver: yupResolver(registerSchema), mode: "onChange" });
+    formState: { errors, touchedFields, isValid },
+  } = useForm({ resolver: yupResolver(registerSchema), mode: "all" });
 
   function registerAccount(newAccount) {
     console.log(newAccount);
@@ -40,7 +40,7 @@ export default function Register() {
               className="flex flex-col items-center text-white mt-[0.5rem] lg:mt-[2rem] w-[50%] md:w-[20rem]"
             >
               <div className="lg:flex lg:gap-[1rem] w-[100%]">
-                <div className="flex flex-col items-center lg:items-start">
+                <div className="flex flex-col items-center lg:items-start lg:w-[50%]">
                   <label
                     className="text-[1rem] md:text-[1.2rem] mt-[1rem]"
                     for="lastname"
@@ -53,13 +53,13 @@ export default function Register() {
                     type="text"
                     name="lastname"
                   />
-                  {errors.lastname && (
+                  {touchedFields.lastname && errors.lastname && (
                     <p className="text-[0.6rem] md:text-[0.8rem] ">
                       {errors.lastname.message}
                     </p>
                   )}
                 </div>
-                <div className="flex flex-col items-center lg:items-start">
+                <div className="flex flex-col items-center lg:items-start lg:w-[50%]">
                   <label
                     className="text-[1rem] md:text-[1.2rem] mt-[1rem]"
                     for="firstname"
@@ -72,7 +72,7 @@ export default function Register() {
                     {...register("firstname")}
                     name="firstname"
                   />
-                  {errors.firstname && (
+                  {touchedFields.firstname && errors.firstname && (
                     <p className="text-[0.6rem] md:text-[0.8rem]">
                       {errors.firstname.message}
                     </p>
@@ -91,7 +91,7 @@ export default function Register() {
                 {...register("username")}
                 name="username"
               />
-              {errors.username && (
+              {touchedFields.username && errors.username && (
                 <p className="text-[0.6rem] md:text-[0.8rem] lg:self-start">
                   {errors.username.message}
                 </p>
@@ -108,7 +108,7 @@ export default function Register() {
                 {...register("mail")}
                 name="mail"
               />
-              {errors.mail && (
+              {touchedFields.mail && errors.mail && (
                 <p className="text-[0.6rem] md:text-[0.8rem] lg:self-start">
                   {errors.mail.message}
                 </p>
