@@ -8,7 +8,7 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="h-[min-content] p-[1rem] bg-[#FDF0D5] flex justify-between fixed z-99 w-[100%]">
+    <nav className="h-[min-content] p-[1rem] bg-[#FDF0D5] flex justify-between fixed top-[0] z-99 w-[100%]">
       <button
         className="flex-1 lg:hidden cursor-pointer"
         onClick={() => {
