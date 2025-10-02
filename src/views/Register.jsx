@@ -3,16 +3,25 @@ import avengersTower from "../assets/img/avengersTower.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import registerSchema from "../validators/register.validator.js";
+import axios from "../../axios.congig.js";
+import { useState } from "react";
 
 export default function Register() {
+  const [error, setError] = useState();
+
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({ resolver: yupResolver(registerSchema), mode: "onChange" });
 
-  function registerAccount(data) {
-    console.log(data);
+  function registerAccount(newAccount) {
+    console.log(newAccount);
+
+    axios
+      .post("/register", newAccount)
+      .then((res) => console.log("ok"))
+      .catch(() => setError("Inscription refusée"));
   }
 
   return (
