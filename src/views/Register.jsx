@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import registerSchema from "../validators/register.validator.js";
 import axios from "../../axios.congig.js";
 import { useState } from "react";
+import InputField from "../components/InputField/InputField.jsx";
 
 export default function Register() {
   const [error, setError] = useState();
@@ -20,7 +21,7 @@ export default function Register() {
 
     axios
       .post("/register", newAccount)
-      .then((res) => console.log("ok"))
+      .then((res) => console.log(res.data))
       .catch(() => setError("Inscription refusée"));
   }
 
@@ -41,95 +42,53 @@ export default function Register() {
             >
               <div className="lg:flex lg:gap-[1rem] w-[100%]">
                 <div className="flex flex-col items-center lg:items-start lg:w-[50%]">
-                  <label
-                    className="text-[1rem] md:text-[1.2rem] mt-[1rem]"
-                    for="lastname"
-                  >
-                    Nom
-                  </label>
-                  <input
-                    {...register("lastname")}
-                    className="bg-white text-black rounded-[0.5rem] p-[0.2rem] w-[100%]"
-                    type="text"
+                  <InputField
                     name="lastname"
+                    label="Nom"
+                    type="text"
+                    register={register}
+                    errors={errors}
+                    touchedFields={touchedFields}
                   />
-                  {touchedFields.lastname && errors.lastname && (
-                    <p className="text-[0.6rem] md:text-[0.8rem] ">
-                      {errors.lastname.message}
-                    </p>
-                  )}
                 </div>
                 <div className="flex flex-col items-center lg:items-start lg:w-[50%]">
-                  <label
-                    className="text-[1rem] md:text-[1.2rem] mt-[1rem]"
-                    for="firstname"
-                  >
-                    Prénom
-                  </label>
-                  <input
-                    className="bg-white text-black rounded-[0.5rem] p-[0.2rem]  w-[100%]"
-                    type="text"
-                    {...register("firstname")}
+                  <InputField
                     name="firstname"
+                    label="Prénom"
+                    type="text"
+                    register={register}
+                    errors={errors}
+                    touchedFields={touchedFields}
                   />
-                  {touchedFields.firstname && errors.firstname && (
-                    <p className="text-[0.6rem] md:text-[0.8rem]">
-                      {errors.firstname.message}
-                    </p>
-                  )}
                 </div>
               </div>
-              <label
-                className="text-[1rem] md:text-[1.2rem] mt-[1rem] lg:self-start"
-                for="username"
-              >
-                Nom d'utilisateur
-              </label>
-              <input
-                className="bg-white text-black rounded-[0.5rem] p-[0.2rem] w-[100%]"
-                type="text"
-                {...register("username")}
+
+              <InputField
                 name="username"
+                label="Nom d'utilisateur"
+                type="text"
+                register={register}
+                errors={errors}
+                touchedFields={touchedFields}
               />
-              {touchedFields.username && errors.username && (
-                <p className="text-[0.6rem] md:text-[0.8rem] lg:self-start">
-                  {errors.username.message}
-                </p>
-              )}
-              <label
-                className="text-[1rem] md:text-[1.2rem] mt-[1rem] lg:self-start"
-                for="mail"
-              >
-                Mail
-              </label>
-              <input
-                className="bg-white text-black rounded-[0.5rem] p-[0.2rem] w-[100%]"
-                type="mail"
-                {...register("mail")}
+
+              <InputField
                 name="mail"
+                label="Mail"
+                type="mail"
+                register={register}
+                errors={errors}
+                touchedFields={touchedFields}
               />
-              {touchedFields.mail && errors.mail && (
-                <p className="text-[0.6rem] md:text-[0.8rem] lg:self-start">
-                  {errors.mail.message}
-                </p>
-              )}
-              <label
-                className="text-[1rem] md:text-[1.2rem] mt-[1rem] lg:self-start"
-                for="password"
-              >
-                Mot de passe
-              </label>
-              <input
-                className="bg-white text-black rounded-[0.5rem] p-[0.2rem] w-[100%]"
-                type="password"
-                {...register("password")}
+
+              <InputField
                 name="password"
+                label="Mot de passe"
+                type="password"
+                register={register}
+                errors={errors}
+                touchedFields={touchedFields}
               />
-              {errors.password && (
-                <p className="text-[0.6rem] md:text-[0.8rem] lg:self-start">
-                  {errors.password.message}
-                </p>
-              )}
               <button
                 disabled={!isValid}
                 className={` bg-[#003049] mt-[1.5rem] p-[1rem] rounded-[0.5rem] text-[1rem] md:text-[1.2rem]  font-[700] ${
