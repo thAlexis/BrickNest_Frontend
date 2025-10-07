@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import mojo from "../assets/img/arbreMojo.webp";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,7 +22,11 @@ export default function Login() {
     axios
       .post("/login", loginIds)
       .then((res) => console.log(res.data))
-      .catch(() => setError("Inscription refusée"));
+      .catch((err) => {
+        err.response
+          ? setError(err.response.data.message)
+          : setError("Un erreur est survenue");
+      });
   }
 
   return (
@@ -56,6 +60,9 @@ export default function Login() {
                 errors={errors}
                 touchedFields={touchedFields}
               />
+              <div className="h-[1rem] mt-[0.5rem]">
+                <span>{error}</span>
+              </div>
               <button
                 disabled={!isValid}
                 className={` bg-[#003049] mt-[1.5rem] p-[1rem] rounded-[0.5rem] text-base font-[700] ${
