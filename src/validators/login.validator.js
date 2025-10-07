@@ -5,6 +5,7 @@ const loginSchema = yup.object({
     .string()
     .email("Adresse mail invalide")
     .required("Adresse mail obligatoire"),
+  password: yup.string().required("Mot de passe obligatoire"),
 });
 
 export default loginSchema;
