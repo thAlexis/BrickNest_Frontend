@@ -21,8 +21,8 @@ export default function Menu() {
         className="flex-1 flex flex-col lg:flex-row lg:gap-[0.6rem] items-center"
         to="#"
       >
-        <img className="w-[2rem] sm:w-[2.4rem] lg:w-[3rem]" src={logo} />
-        <span className="font-robotoCond font-[700] text-[0.8rem] sm:text-[1.2rem]">
+        <img className="w-[2rem] md:w-[2.4rem]" src={logo} />
+        <span className="font-robotoCond font-[700] text-[0.8rem] md:text-[1.2rem]">
           BrickNest
         </span>
       </NavLink>

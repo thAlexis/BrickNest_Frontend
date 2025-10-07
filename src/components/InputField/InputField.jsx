@@ -8,10 +8,7 @@ export default function InputField({
 }) {
   return (
     <>
-      <label
-        className="text-[1rem] md:text-[1.2rem] mt-[1rem] lg:self-start"
-        htmlFor={name}
-      >
+      <label className="text-base mt-[1rem] lg:self-start" htmlFor={name}>
         {label}
       </label>
       <input
@@ -20,18 +17,12 @@ export default function InputField({
         {...register(name)}
         name={name}
       />
-      {name !== "password"
-        ? touchedFields[name] &&
-          errors[name] && (
-            <p className="text-[0.6rem] md:text-[0.8rem] lg:self-start">
-              {errors[name].message}
-            </p>
-          )
-        : errors[name] && (
-            <p className="text-[0.6rem] md:text-[0.8rem] lg:self-start">
-              {errors[name].message}
-            </p>
-          )}
+      <div className="h-[1rem] flex w-[100%] justify-center lg:justify-start">
+        {name !== "password"
+          ? touchedFields[name] &&
+            errors[name] && <p className="text-xs">{errors[name].message}</p>
+          : errors[name] && <p className="text-xs">{errors[name].message}</p>}
+      </div>
     </>
   );
 }
