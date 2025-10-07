@@ -1,13 +1,12 @@
-import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/Menu/Menu";
+import AppRoutes from "./router/route";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Menu />
-      </BrowserRouter>
+      <Menu />
+      <AppRoutes />
     </>
   );
 }
