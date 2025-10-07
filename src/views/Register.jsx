@@ -103,7 +103,9 @@ export default function Register() {
             </form>
             <span className="mt-[0.5rem] text-base text-white ">
               Vous avez déjà un compte ?{" "}
-              <Link className="underline">Connectez-vous</Link>
+              <Link to="/login" className="underline">
+                Connectez-vous
+              </Link>
             </span>
           </div>
         </div>
