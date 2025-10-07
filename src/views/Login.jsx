@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import loginSchema from "../validators/login.validator";
 import InputField from "../components/InputField/InputField";
 import { Link } from "react-router-dom";
+import axios from "../../axios.config.js";
 
 export default function Login() {
   const [error, setError] = useState();
@@ -15,8 +16,13 @@ export default function Login() {
     formState: { errors, touchedFields, isValid },
   } = useForm({ resolver: yupResolver(loginSchema), mode: "all" });
 
-  function login(userIds) {
-    console.log(userIds);
+  function login(loginIds) {
+    console.log(loginIds);
+
+    axios
+      .post("/login", loginIds)
+      .then((res) => console.log(res.data))
+      .catch(() => setError("Inscription refusée"));
   }
 
   return (
