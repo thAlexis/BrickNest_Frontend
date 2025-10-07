@@ -3,7 +3,7 @@ import avengersTower from "../assets/img/avengersTower.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import registerSchema from "../validators/register.validator.js";
-import axios from "../../axios.congig.js";
+import axios from "../../axios.config.js";
 import { useState } from "react";
 import InputField from "../components/InputField/InputField.jsx";
 
