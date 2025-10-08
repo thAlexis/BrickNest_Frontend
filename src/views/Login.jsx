@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import mojo from "../assets/img/arbreMojo.webp";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

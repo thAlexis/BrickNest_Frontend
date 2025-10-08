@@ -22,7 +22,11 @@ export default function Register() {
     axios
       .post("/register", newAccount)
       .then((res) => console.log(res.data))
-      .catch(() => setError("Inscription refusée"));
+      .catch((err) => {
+        err
+          ? setError(err.response.data.message)
+          : setError("Une erreur est survenue");
+      });
   }
 
   return (
@@ -89,6 +93,10 @@ export default function Register() {
                 errors={errors}
                 touchedFields={touchedFields}
               />
+
+              <div className="h-[1rem] mt-[0.5rem]">
+                <span>{error}</span>
+              </div>
 
               <button
                 disabled={!isValid}
