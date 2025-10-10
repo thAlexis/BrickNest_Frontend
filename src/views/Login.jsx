@@ -7,11 +7,13 @@ import InputField from "../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../axios.config.js";
 import { AuthContext } from "../contexts/AuthContext.jsx";
+import { UserContext } from "../contexts/UserContext.jsx";
 
 export default function Login() {
   const [error, setError] = useState();
   const [user, setUser] = useState(null);
   const { setIsAuth, setIsAdmin } = useContext(AuthContext);
+  const { setTokenDecoded } = useContext(UserContext);
   const navigate = useNavigate();
 
   const {
@@ -35,11 +37,7 @@ export default function Login() {
 
   useEffect(() => {
     if (user) {
-      console.log(`///// USER IS : ${user.id}`);
-      localStorage.setItem("firstname", user.firstname);
-      localStorage.setItem("lastname", user.lastname);
-      localStorage.setItem("username", user.username);
-      localStorage.setItem("mail", user.mail);
+      localStorage.setItem("user", user.userToken);
       setIsAuth(true);
       navigate("/");
     }

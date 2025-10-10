@@ -10,20 +10,21 @@ import collection from "../../assets/icons/collection.png";
 import plus from "../../assets/icons/plus.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { UserContext } from "../../contexts/UserContext";
 
 export default function MenuUser() {
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const [isOpenUser, setIsOpenUser] = useState(false);
   const { setIsAuth, setIsAdmin } = useContext(AuthContext);
+  const { userDatas, setUserDatas, setToken } = useContext(UserContext);
   const navigate = useNavigate();
 
   function disconnect() {
-    localStorage.removeItem("firstname");
-    localStorage.removeItem("lastname");
-    localStorage.removeItem("username");
-    localStorage.removeItem("mail");
+    localStorage.removeItem("user");
     setIsAuth(false);
     setIsAdmin(false);
+    setUserDatas(null);
+    setToken(null);
     navigate("/login");
   }
 
@@ -146,7 +147,7 @@ export default function MenuUser() {
           <img className="w-[1.6rem]" src={whiteCross} />
         </button>
         <span className="font-robotoCond font-bold text-2xl md:text-3xl lg:text-4xl mt-[3rem] border-[0.2rem] border-[#669BBC] bg-[#084667] p-[1rem] rounded-br-2xl rounded-tl-2xl">
-          {localStorage.getItem("username")}
+          {userDatas.username}
         </span>
         <ul className="flex flex-col gap-[0.4rem] mt-[1rem]">
           <li className="flex gap-[0.5rem] items-center hover:bg-[#084667] transition-all duration-300 p-[0.6rem] rounded-md">
