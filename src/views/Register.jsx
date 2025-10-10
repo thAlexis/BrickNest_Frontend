@@ -32,7 +32,7 @@ export default function Register() {
   return (
     <div className="lg:w-[100%] lg:h-[min-content] lg:rounded-[10rem] lg:rounded-[1rem] lg:flex lg:justify-center lg:mt-[8rem]">
       <div
-        className="bg-cover bg-center h-[100vh] lg:h-[100%] relative lg:static lg:rounded-[1rem] lg:w-[40rem]"
+        className="bg-cover bg-center h-[110vh] lg:h-[100%] relative lg:static lg:rounded-[1rem] lg:w-[40rem]"
         style={{ backgroundImage: `url(${avengersTower})` }}
       >
         <div className="absolute lg:static inset-0 bg-gradient-to-b from-transparent via-[#C1121F]/95 to-[#780000] lg:rounded-[1rem] lg:h-[100%] lg:pb-[1rem]">

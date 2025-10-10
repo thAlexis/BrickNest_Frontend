@@ -1,38 +1,87 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import burgerMenu from "../../assets/icons/burgerMenu.svg";
-import userIcon from "../../assets/icons/userIcon.png";
+import userIcon from "../../assets/icons/legoHead.png";
+import crossIcon from "../../assets/icons/cross.png";
 import { useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
-export default function Menu() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function MenuUser() {
+  const [isOpenBurger, setIsOpenBurger] = useState(false);
 
   return (
-    <nav className="h-[min-content] p-[1rem] bg-[#FDF0D5] flex justify-between fixed top-[0] z-99 w-[100%]">
-      <button
-        className="flex-1 lg:hidden cursor-pointer"
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-      >
-        <img src={burgerMenu} className="w-[1.6rem] sm:w-[2rem]" />
-      </button>
-      <NavLink
-        className="flex-1 flex flex-col lg:flex-row lg:gap-[0.6rem] items-center"
-        to="#"
-      >
-        <img className="w-[2rem] md:w-[2.4rem]" src={logo} />
-        <span className="font-robotoCond font-[700] text-[0.8rem] md:text-[1.2rem]">
-          BrickNest
-        </span>
-      </NavLink>
+    <nav className="flex justify-center">
+      <div className="h-[min-content] lg:h-[4rem] pl-[1rem] pr-[1rem] p-[0.2rem] bg-[#FDF0D5] items-center flex justify-between fixed top-[1rem] z-50 w-[95%] lg:w-[80%] rounded-[1.5rem] border-[0.2rem] border-[#F1DCB1]">
+        <button
+          className="flex-1 lg:hidden cursor-pointer"
+          onClick={() => {
+            setIsOpenBurger(!isOpenBurger);
+          }}
+        >
+          <img src={burgerMenu} className="w-[1.6rem] sm:w-[2rem]" />
+        </button>
+        <div className="flex-1 lg:flex">
+          <NavLink
+            className="flex flex-col lg:flex-row lg:gap-[0.6rem] items-center"
+            to="#"
+          >
+            <img className="w-[2rem] md:w-[2.4rem]" src={logo} />
+            <span className="font-robotoCond font-[700] text-[0.8rem] md:text-[1.2rem]">
+              BrickNest
+            </span>
+          </NavLink>
+        </div>
+
+        <ul
+          className={`hidden p-[1rem] lg:flex flex-row flex-1 justify-center items-center gap-[1rem] text-base font-robotoCond font-[500] h-[min-content]`}
+        >
+          <button
+            className="lg:hidden"
+            onClick={() => setIsOpenBurger(!isOpenBurger)}
+          >
+            <img className="w-[1.6rem] sm:w-[2rem]" src={crossIcon} />
+          </button>
+          <li className="w-[max-content]">
+            <NavLink to="#">Catalogue</NavLink>
+          </li>
+          <li className="w-[max-content]">
+            <NavLink to="#">Actualité</NavLink>
+          </li>
+          <li className="w-[max-content]">
+            <NavLink to="#">Chercher un utilisateur</NavLink>
+          </li>
+        </ul>
+
+        <div className="flex-1 flex justify-end items-center">
+          <NavLink to="/login" className="cursor-pointer">
+            <img
+              src={userIcon}
+              className="w-[2rem] h-[2rem] sm:w-[2.5rem] sm:h-[2.5rem] border-black border-[0.15rem] rounded-[50%] p-[0.2rem]"
+            />
+          </NavLink>
+        </div>
+      </div>
+      {isOpenBurger && (
+        <div
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-60 lg:hidden"
+          onClick={() => {
+            setIsOpenBurger(false);
+          }}
+        ></div>
+      )}
       <ul
-        className={`absolute lg:static transition-all duration-300 ${
-          isOpen
-            ? "opacity-100 pointer-events-auto z-9999"
-            : "opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
-        }  top-[4.8rem] sm:top-[5.2rem] bg-[#FDF0D5] left-0 p-[1rem] flex flex-col lg:flex-row gap-[1rem] transition-all duration-300 text-[0.8rem] sm:text-[1rem] rounded-br-[0.5rem]`}
+        className={`fixed lg:static lg:hidden transition-all duration-300 ease-in-out ${
+          isOpenBurger
+            ? "translate-x-0 opacity-100 pointer-events-auto"
+            : "-translate-x-full lg:translate-x-0 opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
+        } top-[0rem] bg-[#FDF0D5] left-[0] p-[1rem] flex flex-col lg:flex-row gap-[1rem] transition-all pt-[1rem] lg:pt-[1rem] duration-300 text-base h-[100vh] lg:h-[min-content] z-70`}
       >
+        <button
+          className="lg:hidden"
+          onClick={() => setIsOpenBurger(!isOpenBurger)}
+        >
+          <img className="w-[1.6rem] sm:w-[2rem]" src={crossIcon} />
+        </button>
         <li>
           <NavLink to="#">Actualités</NavLink>
         </li>
@@ -44,24 +93,8 @@ export default function Menu() {
         <li>
           <NavLink to="#">Chercher un utilisateur</NavLink>
         </li>
-        <li className="hidden lg:block font-nunito text-white">
-          <NavLink
-            className="bg-[#C1121F] hover:bg-[#780000] p-[0.5rem] rounded-[0.5rem]"
-            to="/register"
-          >
-            S'inscrire/Se connecter
-          </NavLink>
-        </li>
+        <li className="hidden lg:block font-nunito text-white"></li>
       </ul>
-      <NavLink
-        to="/register"
-        className="flex-1 flex justify-end items-center lg:hidden"
-      >
-        <img
-          src={userIcon}
-          className="w-[2rem] h-[2rem] sm:w-[2.4rem] sm:h-[2.4rem]"
-        />
-      </NavLink>
     </nav>
   );
 }

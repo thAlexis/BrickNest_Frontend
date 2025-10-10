@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import mojo from "../assets/img/arbreMojo.webp";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import loginSchema from "../validators/login.validator";
 import InputField from "../components/InputField/InputField";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../../axios.config.js";
+import { AuthContext } from "../contexts/AuthContext.jsx";
 
 export default function Login() {
   const [error, setError] = useState();
+  const [user, setUser] = useState(null);
+  const { setIsAuth, setIsAdmin } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -21,13 +25,25 @@ export default function Login() {
 
     axios
       .post("/login", loginIds)
-      .then((res) => console.log(res.data))
+      .then((res) => setUser(res.data))
       .catch((err) => {
         err.response
           ? setError(err.response.data.message)
           : setError("Un erreur est survenue");
       });
   }
+
+  useEffect(() => {
+    if (user) {
+      console.log(`///// USER IS : ${user.id}`);
+      localStorage.setItem("firstname", user.firstname);
+      localStorage.setItem("lastname", user.lastname);
+      localStorage.setItem("username", user.username);
+      localStorage.setItem("mail", user.mail);
+      setIsAuth(true);
+      navigate("/");
+    }
+  }, [user]);
 
   return (
     <div className="lg:w-[100%] lg:h-[min-content] lg:rounded-[10rem] lg:rounded-[1rem] lg:flex lg:justify-center lg:mt-[8rem]">
