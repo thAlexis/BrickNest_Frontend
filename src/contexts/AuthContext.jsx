@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [isAuth, setIsAuth] = useState(false || localStorage.getItem("mail"));
+  const [isAuth, setIsAuth] = useState(false || localStorage.getItem("user"));
   const [isAdmin, setIsAdmin] = useState(
     localStorage.getItem("role") == "admin"
   );

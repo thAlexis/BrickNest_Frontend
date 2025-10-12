@@ -4,16 +4,15 @@ import { createContext, useEffect, useState } from "react";
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
+  const tokenFromLocal = localStorage.getItem("user");
   const [userDatas, setUserDatas] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem("user") || null);
+  const [token, setToken] = useState(tokenFromLocal || null);
 
   useEffect(() => {
     if (token) {
       try {
         const tokenDecoded = jwtDecode(token);
-        console.log(tokenDecoded);
         setUserDatas(tokenDecoded);
-        console.log(userDatas);
       } catch (err) {
         console.log(err);
       }
@@ -21,7 +20,7 @@ export function UserProvider({ children }) {
   }, [token]);
 
   return (
-    <UserContext.Provider value={{ userDatas, setToken }}>
+    <UserContext.Provider value={{ userDatas, setToken, setUserDatas }}>
       {children}
     </UserContext.Provider>
   );

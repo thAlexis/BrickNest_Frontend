@@ -8,7 +8,7 @@ import wishlist from "../../assets/icons/wishlist.png";
 import parametres from "../../assets/icons/parametres.png";
 import collection from "../../assets/icons/collection.png";
 import plus from "../../assets/icons/plus.png";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { UserContext } from "../../contexts/UserContext";
 
@@ -82,7 +82,7 @@ export default function MenuUser() {
           >
             <img
               src={userIcon}
-              className="w-[2rem] h-[2rem] sm:w-[2.5rem] sm:h-[2.5rem] border-black border-[0.15rem] rounded-[50%] p-[0.2rem]"
+              className="bg-[#780000] w-[2rem] h-[2rem] sm:w-[2.5rem] sm:h-[2.5rem] rounded-[50%] p-[0.4rem]"
             />
           </button>
         </div>
@@ -147,7 +147,7 @@ export default function MenuUser() {
           <img className="w-[1.6rem]" src={whiteCross} />
         </button>
         <span className="font-robotoCond font-bold text-2xl md:text-3xl lg:text-4xl mt-[3rem] border-[0.2rem] border-[#669BBC] bg-[#084667] p-[1rem] rounded-br-2xl rounded-tl-2xl">
-          {userDatas.username}
+          {userDatas?.username}
         </span>
         <ul className="flex flex-col gap-[0.4rem] mt-[1rem]">
           <li className="flex gap-[0.5rem] items-center hover:bg-[#084667] transition-all duration-300 p-[0.6rem] rounded-md">

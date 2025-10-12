@@ -13,7 +13,7 @@ export default function Login() {
   const [error, setError] = useState();
   const [user, setUser] = useState(null);
   const { setIsAuth, setIsAdmin } = useContext(AuthContext);
-  const { setTokenDecoded } = useContext(UserContext);
+  const { setToken, setUserDatas } = useContext(UserContext);
   const navigate = useNavigate();
 
   const {
@@ -38,6 +38,7 @@ export default function Login() {
   useEffect(() => {
     if (user) {
       localStorage.setItem("user", user.userToken);
+      setToken(user.userToken);
       setIsAuth(true);
       navigate("/");
     }
