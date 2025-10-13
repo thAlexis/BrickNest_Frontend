@@ -8,6 +8,8 @@ import wishlist from "../../assets/icons/wishlist.png";
 import parametres from "../../assets/icons/parametres.png";
 import collection from "../../assets/icons/collection.png";
 import plus from "../../assets/icons/plus.png";
+import news from "../../assets/icons/news.png";
+import catalog from "../../assets/icons/legoBrick.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { UserContext } from "../../contexts/UserContext";
@@ -54,12 +56,6 @@ export default function MenuUser() {
         <ul
           className={`hidden p-[1rem] lg:flex flex-row flex-1 justify-center items-center gap-[1rem] text-base font-robotoCond font-[500] h-[min-content]`}
         >
-          <button
-            className="lg:hidden"
-            onClick={() => setIsOpenBurger(!isOpenBurger)}
-          >
-            <img className="w-[1.6rem] sm:w-[2rem]" src={crossIcon} />
-          </button>
           <li className="w-[max-content]">
             <NavLink to="#">Collection</NavLink>
           </li>
@@ -87,6 +83,8 @@ export default function MenuUser() {
           </button>
         </div>
       </div>
+
+      {/* ///////////////// BLUR WHEN SIDE MENUS ARE OPEN /////////////////////// */}
       {(isOpenBurger && (
         <div
           className="fixed inset-0 bg-black/40 backdrop-blur-sm z-60 lg:hidden"
@@ -105,31 +103,34 @@ export default function MenuUser() {
             }}
           ></div>
         ))}
+
+    {/* //////////////////// MENU BURGER SLIDE FROM LEFT ////////////////////////// */}
       <ul
-        className={`fixed lg:static lg:hidden transition-all duration-300 ease-in-out ${
+        className={`fixed lg:hidden transition-all duration-300 ease-in-out ${
           isOpenBurger
             ? "translate-x-0 opacity-100 pointer-events-auto"
             : "-translate-x-full lg:translate-x-0 opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
-        } top-[0rem] bg-[#FDF0D5] left-[0] p-[1rem] flex flex-col lg:flex-row gap-[1rem] transition-all pt-[1rem] lg:pt-[1rem] duration-300 text-base h-[100vh] lg:h-[min-content] z-70`}
+        } top-[0rem] bg-[#FDF0D5] left-[0] p-[1rem] flex flex-col gap-[1rem] text-base h-[100vh] z-70 w-[50%]`}
       >
         <button
-          className="lg:hidden"
+          className="lg:hidden absolute left-[1rem] p-[0.2rem]"
           onClick={() => setIsOpenBurger(!isOpenBurger)}
         >
-          <img className="w-[1.6rem] sm:w-[2rem]" src={crossIcon} />
+          <img className="w-[1.6rem]" src={crossIcon} />
         </button>
-        <li>
-          <NavLink to="#">Actualités</NavLink>
+        <li className="mt-[5rem] flex items-center gap-[0.5rem]">
+          <img src={news} className="w-[1rem] h-[1rem]" />
+          <NavLink className="text-base" to="#">Actualités</NavLink>
         </li>
-        <li className="bg-black h-[0.01rem] lg:hidden "></li>
-        <li>
-          <NavLink to="#">Catalogue</NavLink>
+        <li className="bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.15rem]"></li>
+        <li className="flex items-center gap-[0.5rem]">
+          <img src={catalog} className="w-[1rem] h-[1rem]" />
+          <NavLink className="text-base" to="#">Catalogue</NavLink>
         </li>
-        <li className="bg-black h-[0.01rem] lg:hidden "></li>
+        <li className="block bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.1rem]"></li>
         <li>
-          <NavLink to="#">Chercher un utilisateur</NavLink>
+          <NavLink className="text-base" to="#">Chercher un utilisateur</NavLink>
         </li>
-        <li className="hidden lg:block font-nunito text-white"></li>
       </ul>
 
       {/* ////////// MENU USER SLIDE FROM RIGHT //////////// */}
@@ -138,7 +139,7 @@ export default function MenuUser() {
           isOpenUser
             ? "translate-x-0 opacity-100 pointer-events-auto"
             : "translate-x-full opacity-0 pointer-events-none"
-        } top-[0rem] bg-[#003049] right-[0] p-[1rem] flex flex-col gap-[1rem] transition-all pt-[1rem] duration-300 text-base h-[100vh] z-70 lg:w-[20%] text-white`}
+        } top-[0rem] bg-[#003049] right-[0] p-[1rem] flex flex-col gap-[1rem] pt-[1rem] text-base h-[100vh] z-70 lg:w-[20%] text-white`}
       >
         <button
           className="absolute right-[1rem] cursor-pointer hover:bg-[#084667] transition-all rounded-[50%] p-[0.2rem]"
