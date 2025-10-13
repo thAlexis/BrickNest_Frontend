@@ -104,13 +104,13 @@ export default function MenuUser() {
           ></div>
         ))}
 
-    {/* //////////////////// MENU BURGER SLIDE FROM LEFT ////////////////////////// */}
+      {/* //////////////////// MENU BURGER SLIDE FROM LEFT ////////////////////////// */}
       <ul
         className={`fixed lg:hidden transition-all duration-300 ease-in-out ${
           isOpenBurger
             ? "translate-x-0 opacity-100 pointer-events-auto"
             : "-translate-x-full lg:translate-x-0 opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
-        } top-[0rem] bg-[#FDF0D5] left-[0] p-[1rem] flex flex-col gap-[1rem] text-base h-[100vh] z-70 w-[50%]`}
+        } top-[0rem] bg-[#FDF0D5] left-[0] p-[1rem] flex flex-col gap-[1rem] text-base h-[100vh] z-70 w-[50%] sm:w-[30%]`}
       >
         <button
           className="lg:hidden absolute left-[1rem] p-[0.2rem]"
@@ -120,16 +120,22 @@ export default function MenuUser() {
         </button>
         <li className="mt-[5rem] flex items-center gap-[0.5rem]">
           <img src={news} className="w-[1rem] h-[1rem]" />
-          <NavLink className="text-base" to="#">Actualités</NavLink>
+          <NavLink className="text-base" to="#">
+            Actualités
+          </NavLink>
         </li>
         <li className="bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.15rem]"></li>
         <li className="flex items-center gap-[0.5rem]">
           <img src={catalog} className="w-[1rem] h-[1rem]" />
-          <NavLink className="text-base" to="#">Catalogue</NavLink>
+          <NavLink className="text-base" to="#">
+            Catalogue
+          </NavLink>
         </li>
         <li className="block bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.1rem]"></li>
         <li>
-          <NavLink className="text-base" to="#">Chercher un utilisateur</NavLink>
+          <NavLink className="text-base" to="#">
+            Chercher un utilisateur
+          </NavLink>
         </li>
       </ul>
 

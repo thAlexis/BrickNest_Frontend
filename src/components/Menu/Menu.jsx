@@ -3,6 +3,9 @@ import logo from "../../assets/img/logo.png";
 import burgerMenu from "../../assets/icons/burgerMenu.svg";
 import userIcon from "../../assets/icons/legoHead.png";
 import crossIcon from "../../assets/icons/cross.png";
+import plus from "../../assets/icons/plus.png";
+import news from "../../assets/icons/news.png";
+import catalog from "../../assets/icons/legoBrick.png";
 import { useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 
@@ -70,28 +73,36 @@ export default function MenuUser() {
         ></div>
       )}
       <ul
-        className={`fixed lg:static lg:hidden transition-all duration-300 ease-in-out ${
+        className={`fixed lg:hidden transition-all duration-300 ease-in-out ${
           isOpenBurger
             ? "translate-x-0 opacity-100 pointer-events-auto"
             : "-translate-x-full lg:translate-x-0 opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
-        } top-[0rem] bg-[#FDF0D5] left-[0] p-[1rem] flex flex-col lg:flex-row gap-[1rem] transition-all pt-[1rem] lg:pt-[1rem] duration-300 text-base h-[100vh] lg:h-[min-content] z-70`}
+        } top-[0rem] bg-[#FDF0D5] left-[0] p-[1rem] flex flex-col gap-[1rem] text-base h-[100vh] z-70 w-[50%] sm:w-[30%]`}
       >
         <button
-          className="lg:hidden"
+          className="lg:hidden absolute left-[1rem] p-[0.2rem]"
           onClick={() => setIsOpenBurger(!isOpenBurger)}
         >
-          <img className="w-[1.6rem] sm:w-[2rem]" src={crossIcon} />
+          <img className="w-[1.6rem]" src={crossIcon} />
         </button>
-        <li>
-          <NavLink to="#">Actualités</NavLink>
+        <li className="mt-[5rem] flex items-center gap-[0.5rem]">
+          <img src={news} className="w-[1rem] h-[1rem]" />
+          <NavLink className="text-base" to="#">
+            Actualités
+          </NavLink>
         </li>
-        <li className="bg-black h-[0.01rem] lg:hidden "></li>
-        <li>
-          <NavLink to="#">Catalogue</NavLink>
+        <li className="bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.15rem]"></li>
+        <li className="flex items-center gap-[0.5rem]">
+          <img src={catalog} className="w-[1rem] h-[1rem]" />
+          <NavLink className="text-base" to="#">
+            Catalogue
+          </NavLink>
         </li>
-        <li className="bg-black h-[0.01rem] lg:hidden "></li>
+        <li className="bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.1rem]"></li>
         <li>
-          <NavLink to="#">Chercher un utilisateur</NavLink>
+          <NavLink className="text-base" to="#">
+            Chercher un utilisateur
+          </NavLink>
         </li>
         <li className="hidden lg:block font-nunito text-white"></li>
       </ul>
