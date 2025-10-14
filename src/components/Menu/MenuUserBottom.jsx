@@ -8,7 +8,7 @@ export default function MenuUserBottom() {
         <ul className="flex items-center justify-evenly w-[100%]">
           <li>Collection</li>
           <li className="w-[max-content] bg-[#FDF0D5] rounded-[50%] p-[0.8rem] border-[0.4rem] border-[#780000]">
-            <NavLink>
+            <NavLink to="/catalog">
               <img className="w-[2rem] md:w-[2.4rem]" src={plus} />
             </NavLink>
           </li>
