@@ -23,8 +23,6 @@ export default function Login() {
   } = useForm({ resolver: yupResolver(loginSchema), mode: "all" });
 
   function login(loginIds) {
-    console.log(loginIds);
-
     axios
       .post("/login", loginIds)
       .then((res) => setUser(res.data))
