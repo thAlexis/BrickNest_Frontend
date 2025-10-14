@@ -27,7 +27,7 @@ export default function MainThemes() {
       {mainThemes?.map(
         (t, i) =>
           t.theme_name !== "name" && (
-            <ThemeBox themeName={t.theme_name} key={i} />
+            <ThemeBox themeName={t.theme_name} themeId={t.theme_id} key={i} />
           )
       )}
     </div>

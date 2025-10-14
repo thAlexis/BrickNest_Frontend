@@ -61,7 +61,7 @@ export default function MenuUser() {
           </li>
           <li className="bg-black h-[0.01rem] lg:hidden "></li>
           <li className="w-[max-content] bg-white rounded-[50%] p-[1rem] border-[0.4rem] border-[#F1DCB1] hover:scale-[110%] transition-all duration-300">
-            <NavLink to="#">
+            <NavLink to="/catalog">
               <img className="w-[2rem]" src={plus} />
             </NavLink>
           </li>
