@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export default function ThemeBox({ themeName, themeId }) {
+export default function ThemeBox({ themeName }) {
   let imgClass = "";
   let spanText = themeName;
   switch (themeName) {
@@ -59,7 +59,7 @@ export default function ThemeBox({ themeName, themeId }) {
 
   return (
     <NavLink
-      to={`/catalog/${themeId}`}
+      to={`/catalog/${themeName}`}
       className="bg-[#780000] h-[8rem] sm:h-[10rem] lg:h-[12rem] w-[8rem] lg:w-[12rem] sm:w-[10rem] rounded-[0.6rem] flex flex-col justify-end hover:scale-[110%] transition-all duration-300 relative"
     >
       <img src={`/mainThemes_img/${themeName}.png`} className={imgClass} />
