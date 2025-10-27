@@ -7,8 +7,6 @@ export default function MainThemes() {
   const [error, setError] = useState();
   const [mainThemes, setMainThemes] = useState([]);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     axios
       .get("/themes/mainthemes")
@@ -27,7 +25,7 @@ export default function MainThemes() {
       {mainThemes?.map(
         (t, i) =>
           t.theme_name !== "name" && (
-            <ThemeBox themeName={t.theme_name} themeId={t.theme_id} key={i} />
+            <ThemeBox themeName={t.theme_name} key={i} />
           )
       )}
     </div>
