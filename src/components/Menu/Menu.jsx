@@ -7,7 +7,6 @@ import plus from "../../assets/icons/plus.png";
 import news from "../../assets/icons/news.png";
 import catalog from "../../assets/icons/legoBrick.png";
 import { useState } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
 
 export default function MenuUser() {
   const [isOpenBurger, setIsOpenBurger] = useState(false);
@@ -45,7 +44,7 @@ export default function MenuUser() {
             <img className="w-[1.6rem] sm:w-[2rem]" src={crossIcon} />
           </button>
           <li className="w-[max-content]">
-            <NavLink to="#">Catalogue</NavLink>
+            <NavLink to="/catalog">Catalogue</NavLink>
           </li>
           <li className="w-[max-content]">
             <NavLink to="#">Actualité</NavLink>
@@ -94,7 +93,7 @@ export default function MenuUser() {
         <li className="bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.15rem]"></li>
         <li className="flex items-center gap-[0.5rem]">
           <img src={catalog} className="w-[1rem] h-[1rem]" />
-          <NavLink className="text-base" to="#">
+          <NavLink className="text-base" to="/catalog">
             Catalogue
           </NavLink>
         </li>

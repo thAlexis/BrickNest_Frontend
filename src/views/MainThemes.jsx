@@ -1,6 +1,5 @@
 import axios from "../../axios.config.js";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import ThemeBox from "../components/ThemeBox/ThemeBox.jsx";
 
 export default function MainThemes() {

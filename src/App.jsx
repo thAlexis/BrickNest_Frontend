@@ -3,16 +3,16 @@ import "./App.css";
 import Menu from "./components/Menu/Menu";
 import MenuUser from "./components/Menu/MenuUser";
 import AppRoutes from "./router/route";
-import { AuthContext } from "./contexts/AuthContext";
 import MenuUserBottom from "./components/Menu/MenuUserBottom";
+import { UserContext } from "./contexts/UserContext";
 
 function App() {
-  const { isAuth, isAdmin } = useContext(AuthContext);
+  const { userDatas } = useContext(UserContext);
 
   return (
     <>
-      {isAuth ? <MenuUser /> : <Menu />}
-      {isAuth && <MenuUserBottom />}
+      {userDatas ? <MenuUser /> : <Menu />}
+      {userDatas && <MenuUserBottom />}
       <AppRoutes />
     </>
   );

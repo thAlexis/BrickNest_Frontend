@@ -11,20 +11,17 @@ import plus from "../../assets/icons/plus.png";
 import news from "../../assets/icons/news.png";
 import catalog from "../../assets/icons/legoBrick.png";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
 import { UserContext } from "../../contexts/UserContext";
 
 export default function MenuUser() {
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const [isOpenUser, setIsOpenUser] = useState(false);
-  const { setIsAuth, setIsAdmin } = useContext(AuthContext);
+
   const { userDatas, setUserDatas, setToken } = useContext(UserContext);
   const navigate = useNavigate();
 
   function disconnect() {
     localStorage.removeItem("user");
-    setIsAuth(false);
-    setIsAdmin(false);
     setUserDatas(null);
     setToken(null);
     navigate("/login");
@@ -127,7 +124,7 @@ export default function MenuUser() {
         <li className="bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.15rem]"></li>
         <li className="flex items-center gap-[0.5rem]">
           <img src={catalog} className="w-[1rem] h-[1rem]" />
-          <NavLink className="text-base" to="#">
+          <NavLink className="text-base" to="/catalog">
             Catalogue
           </NavLink>
         </li>
