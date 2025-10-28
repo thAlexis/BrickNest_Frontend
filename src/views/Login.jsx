@@ -6,13 +6,11 @@ import loginSchema from "../validators/login.validator";
 import InputField from "../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../axios.config.js";
-import { AuthContext } from "../contexts/AuthContext.jsx";
 import { UserContext } from "../contexts/UserContext.jsx";
 
 export default function Login() {
   const [error, setError] = useState();
   const [user, setUser] = useState(null);
-  const { setIsAuth, setIsAdmin } = useContext(AuthContext);
   const { setToken, setUserDatas } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -37,7 +35,6 @@ export default function Login() {
     if (user) {
       localStorage.setItem("user", user.userToken);
       setToken(user.userToken);
-      setIsAuth(true);
       navigate("/");
     }
   }, [user]);

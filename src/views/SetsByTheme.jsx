@@ -21,6 +21,10 @@ export default function SetsByTheme() {
     setPage(page - 1);
   }
 
+  function handleTargetedPage(page) {
+    setPage(page);
+  }
+
   useEffect(() => {
     axios
       .get(`/sets/${mainTheme}?page=${page}`)
@@ -33,6 +37,8 @@ export default function SetsByTheme() {
           ? setError(err.response.data.message)
           : setError("Une erreur est survenue");
       });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [page]);
 
   if (!legoSets) return <p className="mt-[5rem]">{error || "Chargement..."}</p>;
@@ -44,6 +50,7 @@ export default function SetsByTheme() {
         nbPages={nbPages}
         previousPage={handlePreviousPage}
         nextPage={handleNextPage}
+        targetedPage={handleTargetedPage}
       />
       <div className="flex flex-col gap-[1rem] items-center mt-[1rem] mb-[1rem] w-[80%]">
         {legoSets.map((s, i) => (
@@ -55,6 +62,7 @@ export default function SetsByTheme() {
         nbPages={nbPages}
         previousPage={handlePreviousPage}
         nextPage={handleNextPage}
+        targetedPage={handleTargetedPage}
       />
     </div>
   );
