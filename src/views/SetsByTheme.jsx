@@ -44,15 +44,19 @@ export default function SetsByTheme() {
   if (!legoSets) return <p className="mt-[5rem]">{error || "Chargement..."}</p>;
 
   return (
-    <div className="flex flex-col gap-[1rem] items-center mt-[6rem] mb-[6rem] w-[100%]">
+    <div className="flex flex-col gap-[1rem] items-center mt-[6rem] md:mt-[8rem] mb-[6rem] w-[100%]">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-[1rem]">
+        {mainTheme}
+      </h1>
       <Pagination
         page={page}
         nbPages={nbPages}
         previousPage={handlePreviousPage}
         nextPage={handleNextPage}
         targetedPage={handleTargetedPage}
+        isLG={true}
       />
-      <div className="flex flex-col gap-[1rem] items-center mt-[1rem] mb-[1rem] w-[80%]">
+      <div className="flex flex-col gap-[1rem] items-center mt-[1rem] mb-[1rem] w-[80%] md:w-[60%] lg:w-[50rem]">
         {legoSets.map((s, i) => (
           <SetCard {...s} />
         ))}
@@ -63,6 +67,7 @@ export default function SetsByTheme() {
         previousPage={handlePreviousPage}
         nextPage={handleNextPage}
         targetedPage={handleTargetedPage}
+        isLG={false}
       />
     </div>
   );

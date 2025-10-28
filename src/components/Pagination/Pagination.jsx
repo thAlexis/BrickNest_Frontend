@@ -7,9 +7,14 @@ export default function Pagination({
   previousPage,
   nextPage,
   targetedPage,
+  isLG,
 }) {
   return (
-    <div className="flex gap-[2rem] justify-around items-center font-robotoCond] w-[70%]">
+    <div
+      className={`flex gap-[2rem] justify-around items-center font-robotoCond] w-[15rem] ${
+        isLG && "lg:hidden"
+      }`}
+    >
       <button
         className="w-[2rem] h-[2rem] rounded-[50%] border-[0.2rem] border-[#F1DCB1] bg-[#FDF0D5] flex items-center justify-center"
         disabled={page == 1}
