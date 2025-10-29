@@ -18,6 +18,7 @@ export default function MenuUser() {
   const [isOpenUser, setIsOpenUser] = useState(false);
 
   const { userDatas, setUserDatas, setToken } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   function disconnect() {

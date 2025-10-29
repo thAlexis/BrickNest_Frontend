@@ -1,11 +1,12 @@
 import axios from "../../axios.config";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SetCard from "../components/SetCard/SetCard";
 import Pagination from "../components/Pagination/Pagination";
+import { InvalidJWTContext } from "../contexts/InvalidJWTContext";
 
 export default function SetsByTheme() {
-  const [error, setError] = useState();
+  const { error, setError } = useContext(InvalidJWTContext);
   const [legoSets, setLegoSets] = useState();
   const [page, setPage] = useState(1);
   const [nbPages, setNbPages] = useState(1);
