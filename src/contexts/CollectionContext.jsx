@@ -16,7 +16,7 @@ export function CollectionProvider({ children }) {
     }
     if (token) {
       axios
-        .get("/collection/getsets", {
+        .get("/collection/getsetsnum", {
           headers: { authorization: `Bearer ${token}` },
         })
         .then((res) => setUserCollection(res.data))

@@ -55,7 +55,7 @@ export default function MenuUser() {
           className={`hidden p-[1rem] lg:flex flex-row flex-1 justify-center items-center gap-[1rem] text-base font-robotoCond font-[500] h-[min-content]`}
         >
           <li className="w-[max-content]">
-            <NavLink to="#">Collection</NavLink>
+            <NavLink to="/collection">Collection</NavLink>
           </li>
           <li className="bg-black h-[0.01rem] lg:hidden "></li>
           <li className="w-[max-content] bg-white rounded-[50%] p-[1rem] border-[0.4rem] border-[#F1DCB1] hover:scale-[110%] transition-all duration-300">
