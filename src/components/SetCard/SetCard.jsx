@@ -3,7 +3,7 @@ import AddToWishlist from "../Buttons/AddToWishlist";
 
 export default function SetCard({ set_num, set_name, img_link, parts_num }) {
   return (
-    <div className="bg-[#FDF0D5] flex w-[100%] h-[8rem] rounded-xl shadow-md overflow-hidden">
+    <div className="bg-[#780000] text-white flex w-[100%] h-[8rem] rounded-xl shadow-md overflow-hidden">
       <div className="h-[8rem] w-[40%] lg:w-[30%] flex justify-center items-center bg-white">
         <img className="max-h-full" src={img_link} />
       </div>

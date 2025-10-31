@@ -18,6 +18,7 @@ export default function MenuUser() {
   const [isOpenUser, setIsOpenUser] = useState(false);
 
   const { userDatas, setUserDatas, setToken } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   function disconnect() {
@@ -54,7 +55,7 @@ export default function MenuUser() {
           className={`hidden p-[1rem] lg:flex flex-row flex-1 justify-center items-center gap-[1rem] text-base font-robotoCond font-[500] h-[min-content]`}
         >
           <li className="w-[max-content]">
-            <NavLink to="#">Collection</NavLink>
+            <NavLink to="/collection">Collection</NavLink>
           </li>
           <li className="bg-black h-[0.01rem] lg:hidden "></li>
           <li className="w-[max-content] bg-white rounded-[50%] p-[1rem] border-[0.4rem] border-[#F1DCB1] hover:scale-[110%] transition-all duration-300">
@@ -156,7 +157,7 @@ export default function MenuUser() {
         <ul className="flex flex-col gap-[0.4rem] mt-[1rem]">
           <li className="flex gap-[0.5rem] items-center hover:bg-[#084667] transition-all duration-300 p-[0.6rem] rounded-md">
             <img src={collection} className="w-[1rem] h-[1rem]" />
-            <NavLink className="text-base" to="#">
+            <NavLink className="text-base" to="/collection">
               Ma collection
             </NavLink>
           </li>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import avengersTower from "../assets/img/avengersTower.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -9,6 +9,7 @@ import InputField from "../components/InputField/InputField.jsx";
 
 export default function Register() {
   const [error, setError] = useState();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -21,7 +22,7 @@ export default function Register() {
 
     axios
       .post("/register", newAccount)
-      .then((res) => console.log(res.data))
+      .then((res) => navigate("/login"))
       .catch((err) => {
         err
           ? setError(err.response.data.message)
