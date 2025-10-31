@@ -157,7 +157,7 @@ export default function MenuUser() {
         <ul className="flex flex-col gap-[0.4rem] mt-[1rem]">
           <li className="flex gap-[0.5rem] items-center hover:bg-[#084667] transition-all duration-300 p-[0.6rem] rounded-md">
             <img src={collection} className="w-[1rem] h-[1rem]" />
-            <NavLink className="text-base" to="#">
+            <NavLink className="text-base" to="/collection">
               Ma collection
             </NavLink>
           </li>
