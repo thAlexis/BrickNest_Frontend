@@ -4,9 +4,13 @@ import { useParams } from "react-router-dom";
 import SetCard from "../components/SetCard/SetCard";
 import Pagination from "../components/Pagination/Pagination";
 import { InvalidJWTContext } from "../contexts/InvalidJWTContext";
+import { CollectionContext } from "../contexts/CollectionContext";
+import { WishlistContext } from "../contexts/WishlistContext";
 
 export default function SetsByTheme() {
   const { error, setError } = useContext(InvalidJWTContext);
+  const { userCollection } = useContext(CollectionContext);
+  const { userWishlist } = useContext(WishlistContext);
   const [legoSets, setLegoSets] = useState();
   const [page, setPage] = useState(1);
   const [nbPages, setNbPages] = useState(1);
@@ -41,6 +45,8 @@ export default function SetsByTheme() {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [page]);
+
+  if (!userCollection && !userWishlist) return <p>Blabla</p>;
 
   if (!legoSets) return <p className="mt-[5rem]">{error || "Chargement..."}</p>;
 
