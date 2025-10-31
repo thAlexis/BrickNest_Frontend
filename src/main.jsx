@@ -6,6 +6,7 @@ import App from "./App.jsx";
 import { UserProvider } from "./contexts/UserContext.jsx";
 import { InvalidJWTProvider } from "./contexts/InvalidJWTContext.jsx";
 import { CollectionProvider } from "./contexts/CollectionContext.jsx";
+import { WishlistProvider } from "./contexts/WishlistContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")).render(
       <UserProvider>
         <InvalidJWTProvider>
           <CollectionProvider>
-            <App />
+            <WishlistProvider>
+              <App />
+            </WishlistProvider>
           </CollectionProvider>
         </InvalidJWTProvider>
       </UserProvider>
