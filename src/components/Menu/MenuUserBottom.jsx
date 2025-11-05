@@ -7,7 +7,7 @@ export default function MenuUserBottom() {
 
   return (
     <div className="lg:hidden flex justify-center text-white text-base font-robotoCond font-[500]">
-      <div className="h-[3.6rem] bg-[#780000] fixed bottom-[1rem] w-[80%] md:w-[30rem] md:h-[4rem] z-50 rounded-[1.5rem] flex justify-center items-center shadow-md">
+      <div className="h-[3.6rem] bg-[#780000] fixed bottom-[1rem] w-[80%] md:w-[30rem] md:h-[4rem] z-50 rounded-[1.5rem] flex justify-center items-center shadow-[0_0_10px_rgba(0,0,0,0.4)]">
         <ul className="flex items-center justify-evenly w-[100%] ">
           <li className="relative">
             <NavLink

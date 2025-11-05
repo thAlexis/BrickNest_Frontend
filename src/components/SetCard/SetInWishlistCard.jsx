@@ -1,6 +1,7 @@
 import AddToCollection from "../Buttons/AddToCollection";
+import AddToWishlist from "../Buttons/AddToWishlist";
 
-export default function SetInCollecCard({
+export default function SetInWishlistCard({
   set_num,
   set_name,
   img_link,
@@ -17,8 +18,9 @@ export default function SetInCollecCard({
           <h2 className="text-base lg:text-lg font-semibold">{set_name}</h2>
           <p>{parts_num > 1 && `Nombre de pièces : ${parts_num}`}</p>
         </div>
-        <div className="mt-[1rem] flex justify-end">
+        <div className="mt-[1rem] flex justify-end gap-[1rem]">
           <AddToCollection set_num={set_num} />
+          <AddToWishlist set_num={set_num} />
         </div>
       </div>
     </div>
