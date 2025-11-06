@@ -6,23 +6,40 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "../../../axios.config.js";
 import { InvalidJWTContext } from "../../contexts/InvalidJWTContext.jsx";
 import { CollectionContext } from "../../contexts/CollectionContext.jsx";
+import { WishlistContext } from "../../contexts/WishlistContext.jsx";
 
 export default function AddToCollection({ set_num }) {
-  const { userDatas, setUserDatas } = useContext(UserContext);
+  const { userDatas, token } = useContext(UserContext);
   const { error, setError } = useContext(InvalidJWTContext);
-  const { token } = useContext(UserContext);
   const { userCollection, setUserCollection } = useContext(CollectionContext);
+  const { userWishlist, setUserWishlist } = useContext(WishlistContext);
   const isInCollec = userCollection.some((i) => i.set_num === set_num);
+  const isInWishList = userWishlist.some((i) => i.set_num === set_num);
 
   function addSetToCollection() {
-    isInCollec === false &&
+    !isInCollec &&
       axios
         .post(`/collection/addset/${set_num}`, null, {
           headers: { authorization: `Bearer ${token}` },
         })
-        .then((res) =>
-          setUserCollection([...userCollection, { set_num: set_num }])
-        )
+        .then((res) => {
+          setUserCollection([...userCollection, { set_num: set_num }]);
+          isInWishList &&
+            axios
+              .delete(`/wishlist/delete/${set_num}`, {
+                headers: { authorization: `Bearer ${token}` },
+              })
+              .then((res) =>
+                setUserWishlist(
+                  userWishlist.filter((i) => i.set_num !== set_num)
+                )
+              )
+              .catch((err) => {
+                err.response
+                  ? setError(err.response.data.message)
+                  : setError("Une erreur est survenue");
+              });
+        })
         .catch((err) => {
           err.response
             ? setError(err.response.data.message)
@@ -31,7 +48,7 @@ export default function AddToCollection({ set_num }) {
   }
 
   function removeSetFromCollection() {
-    isInCollec === true &&
+    isInCollec &&
       axios
         .delete(`/collection/delete/${set_num}`, {
           headers: { authorization: `Bearer ${token}` },

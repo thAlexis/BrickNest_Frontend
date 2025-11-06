@@ -65,7 +65,7 @@ export default function MenuUser() {
           </li>
           <li className="bg-black h-[0.01rem] lg:hidden "></li>
           <li className="w-[max-content]">
-            <NavLink to="#">Wishlist</NavLink>
+            <NavLink to="/wishlist">Wishlist</NavLink>
           </li>
         </ul>
 
@@ -164,7 +164,7 @@ export default function MenuUser() {
           <li className="bg-gradient-to-r from-transparent via-[#669BBC]/90 to-transparent h-[0.15rem]"></li>
           <li className="flex gap-[0.5rem] items-center hover:bg-[#084667] transition-all duration-300 p-[0.6rem] rounded-md">
             <img src={wishlist} className="w-[1rem] h-[1rem]" />
-            <NavLink className="text-base" to="#">
+            <NavLink className="text-base" to="/wishlist">
               Ma wishlist
             </NavLink>
           </li>
