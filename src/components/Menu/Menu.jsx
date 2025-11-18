@@ -25,7 +25,7 @@ export default function MenuUser() {
         <div className="flex-1 lg:flex">
           <NavLink
             className="flex flex-col lg:flex-row lg:gap-[0.6rem] items-center"
-            to="#"
+            to="/"
           >
             <img className="w-[2rem] md:w-[2.4rem]" src={logo} />
             <span className="font-robotoCond font-[700] text-[0.8rem] md:text-[1.2rem]">
