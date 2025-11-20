@@ -9,6 +9,9 @@ import ConnectedHomePage from "../views/HomePage/ConnectedHomePage.jsx";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext.jsx";
 import HomePage from "../views/HomePage/HomePage.jsx";
+import ExpiredSession from "../views/ErrorsPages/ExpiredSession.jsx";
+import NotFound from "../views/ErrorsPages/NotFound.jsx";
+import Unauthorized from "../views/ErrorsPages/Unauthorized.jsx";
 
 export default function AppRoutes() {
   const { userDatas } = useContext(UserContext);
@@ -25,6 +28,9 @@ export default function AppRoutes() {
         path="/"
         element={userDatas ? <ConnectedHomePage /> : <HomePage />}
       />
+      <Route path="/expired" element={<ExpiredSession />} />
+      <Route path="/unauthorized" element={<Unauthorized />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

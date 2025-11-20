@@ -10,12 +10,15 @@ export function InvalidJWTProvider({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (error === "Le token est invalide") {
+    if (
+      error === "La session a expiré" ||
+      error === "Hop hop hop, vous n'avez rien a faire là !"
+    ) {
       localStorage.removeItem("user");
       setUserDatas(null);
       setToken(null);
       setError(null);
-      navigate("/login");
+      navigate("/expired");
     }
   }, [error]);
 
