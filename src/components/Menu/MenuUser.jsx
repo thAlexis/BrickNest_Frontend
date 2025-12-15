@@ -30,7 +30,7 @@ export default function MenuUser() {
 
   return (
     <nav className="flex justify-center">
-      <div className="h-[min-content] lg:h-[4rem] pl-[1rem] pr-[1rem] p-[0.2rem] bg-[#FDF0D5] items-center flex justify-between fixed top-[1rem] z-50 w-[95%] lg:w-[80%] rounded-[1.5rem] border-[0.2rem] border-[#F1DCB1]">
+      <div className="h-[min-content] lg:h-[4rem] pl-[1rem] pr-[1rem] p-[0.2rem] bg-[#FDF0D5] items-center flex justify-between fixed top-[1rem] z-50 w-[95%] lg:w-[80%] rounded-[1rem] border-[0.2rem] border-[#F1DCB1]">
         <button
           className="flex-1 lg:hidden cursor-pointer"
           onClick={() => {
@@ -42,7 +42,7 @@ export default function MenuUser() {
         <div className="flex-1 lg:flex">
           <NavLink
             className="flex flex-col lg:flex-row lg:gap-[0.6rem] items-center"
-            to="#"
+            to="/"
           >
             <img className="w-[2rem] md:w-[2.4rem]" src={logo} />
             <span className="font-robotoCond font-[700] text-[0.8rem] md:text-[1.2rem]">

@@ -14,7 +14,9 @@ export default function SetInCollecCard({
       <div className="pt-[0.4rem] pl-[0.4rem] pr-[0.4rem] flex flex-col justify-between h-[40%]">
         <div>
           <p className="text-sm">{set_num}</p>
-          <h2 className="text-base lg:text-lg font-semibold">{set_name}</h2>
+          <h2 className="text-base lg:text-lg font-semibold truncate">
+            {set_name}
+          </h2>
           <p>{parts_num > 1 && `Nombre de pièces : ${parts_num}`}</p>
         </div>
         <div className="mt-[1rem] flex justify-end">
