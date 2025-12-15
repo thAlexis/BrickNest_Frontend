@@ -6,7 +6,10 @@ export default function NotFound() {
       <img className="w-[14rem]" src={notFound} />
       <div className="flex flex-col items-center">
         <span className="text-4xl font-bold">404</span>
-        <span>La page n'a pas été trouvée</span>
+        <span>
+          Oups ! Il manque une pièce. Cette page a peut-être été aspirée par
+          l'aspirateur.
+        </span>
       </div>
     </div>
   );
