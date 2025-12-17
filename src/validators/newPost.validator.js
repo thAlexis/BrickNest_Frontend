@@ -30,7 +30,7 @@ const newPostSchema = yup.object({
   text: yup
     .string()
     .required("Le texte est obligatoire")
-    .max(300, "300 caractères maximum"),
+    .max(1500, "1500 caractères maximum"),
 });
 
 export default newPostSchema;

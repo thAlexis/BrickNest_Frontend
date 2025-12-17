@@ -6,10 +6,12 @@ import newPostSchema from "../validators/newPost.validator.js";
 import { useForm } from "react-hook-form";
 import InputField from "../components/InputField/InputField.jsx";
 import axios from "../../axios.config.js";
+import { useNavigate } from "react-router-dom";
 
 export default function NewPostForm() {
   const { userDatas, token } = useContext(UserContext);
   const { error, setError } = useContext(InvalidJWTContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -27,7 +29,7 @@ export default function NewPostForm() {
       .post("/newsposts", formData, {
         headers: { authorization: `Bearer ${token}` },
       })
-      .then((res) => console.log(res))
+      .then((res) => navigate(`/post/${res.data.postId}`))
       .catch((err) => {
         err.response
           ? setError(err.response.data.message)
