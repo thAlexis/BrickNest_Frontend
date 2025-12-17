@@ -12,6 +12,7 @@ import HomePage from "../views/HomePage/HomePage.jsx";
 import ExpiredSession from "../views/ErrorsPages/ExpiredSession.jsx";
 import NotFound from "../views/ErrorsPages/NotFound.jsx";
 import Unauthorized from "../views/ErrorsPages/Unauthorized.jsx";
+import NewPostForm from "../views/NewPostForm.jsx";
 
 export default function AppRoutes() {
   const { userDatas } = useContext(UserContext);
@@ -30,6 +31,7 @@ export default function AppRoutes() {
       />
       <Route path="/expired" element={<ExpiredSession />} />
       <Route path="/unauthorized" element={<Unauthorized />} />
+      <Route path="/newpost" element={<NewPostForm />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

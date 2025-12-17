@@ -10,15 +10,14 @@ export function InvalidJWTProvider({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (
-      error === "La session a expiré" ||
-      error === "Hop hop hop, vous n'avez rien a faire là !"
-    ) {
+    if (error === "La session a expiré") {
       localStorage.removeItem("user");
       setUserDatas(null);
       setToken(null);
       setError(null);
       navigate("/expired");
+    } else if (error === "Non autorisé") {
+      navigate("/unauthorized");
     }
   }, [error]);
 

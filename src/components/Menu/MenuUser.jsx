@@ -129,12 +129,6 @@ export default function MenuUser() {
             Catalogue
           </NavLink>
         </li>
-        <li className="block bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.1rem]"></li>
-        <li>
-          <NavLink className="text-base" to="#">
-            Chercher un utilisateur
-          </NavLink>
-        </li>
       </ul>
 
       {/* ////////// MENU USER SLIDE FROM RIGHT //////////// */}

@@ -18,8 +18,6 @@ export default function Register() {
   } = useForm({ resolver: yupResolver(registerSchema), mode: "all" });
 
   function registerAccount(newAccount) {
-    console.log(newAccount);
-
     axios
       .post("/register", newAccount)
       .then((res) => navigate("/login"))

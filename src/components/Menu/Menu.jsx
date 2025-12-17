@@ -97,12 +97,6 @@ export default function MenuUser() {
             Catalogue
           </NavLink>
         </li>
-        <li className="bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.1rem]"></li>
-        <li>
-          <NavLink className="text-base" to="#">
-            Chercher un utilisateur
-          </NavLink>
-        </li>
         <li className="hidden lg:block font-nunito text-white"></li>
       </ul>
     </nav>
