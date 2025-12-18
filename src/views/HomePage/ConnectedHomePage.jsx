@@ -46,7 +46,7 @@ export default function ConnectedHomePage() {
   }, []);
 
   if (!userDatas || !lastFiveWishlist || !lastThreeCollec)
-    return <p>{error} Chargement...</p>;
+    return <p>Chargement...</p>;
 
   return (
     <div className="flex flex-col gap-[2rem] items-center mt-[6rem] md:mt-[8rem] mb-[6rem]">

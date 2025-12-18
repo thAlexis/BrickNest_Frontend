@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { InvalidJWTContext } from "../contexts/InvalidJWTContext";
 import axios from "../../axios.config.js";
 import { UserContext } from "../contexts/UserContext.jsx";
@@ -54,9 +54,12 @@ export default function Post() {
       </div>
       {userDatas.role === "admin" && (
         <div className="flex gap-[1rem] mt-[2rem]">
-          <button className="bg-[#084667] hover:bg-[#669BBC] p-[0.8rem] rounded-sm text-white transition-all duration-300 cursor-pointer">
+          <NavLink
+            to={`/modifypost/${postId}`}
+            className="bg-[#084667] hover:bg-[#669BBC] p-[0.8rem] rounded-sm text-white transition-all duration-300 cursor-pointer"
+          >
             Modifier
-          </button>
+          </NavLink>
           <button
             onClick={deletePost}
             className="bg-[#780000] hover:bg-[#C1121F] p-[0.8rem] rounded-sm text-white transition-all duration-300 cursor-pointer"
