@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AccountForm from "../components/ModifyAccountForms/AccountForm";
+import PasswordForm from "../components/ModifyAccountForms/PasswordForm";
 
 export default function ModifyAccount() {
   const [section, setSection] = useState("account");
@@ -38,6 +39,7 @@ export default function ModifyAccount() {
       </div>
       <div className="bg-[#FDF0D5]">
         {section === "account" && <AccountForm />}
+        {section === "password" && <PasswordForm />}
       </div>
     </div>
   );
