@@ -49,9 +49,6 @@ export default function MenuUser() {
           <li className="w-[max-content]">
             <NavLink to="#">Actualité</NavLink>
           </li>
-          <li className="w-[max-content]">
-            <NavLink to="#">Chercher un utilisateur</NavLink>
-          </li>
         </ul>
 
         <div className="flex-1 flex justify-end items-center">
@@ -95,12 +92,6 @@ export default function MenuUser() {
           <img src={catalog} className="w-[1rem] h-[1rem]" />
           <NavLink className="text-base" to="/catalog">
             Catalogue
-          </NavLink>
-        </li>
-        <li className="bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.1rem]"></li>
-        <li>
-          <NavLink className="text-base" to="#">
-            Chercher un utilisateur
           </NavLink>
         </li>
         <li className="hidden lg:block font-nunito text-white"></li>

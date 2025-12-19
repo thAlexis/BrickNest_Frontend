@@ -10,6 +10,7 @@ import collection from "../../assets/icons/collection.png";
 import plus from "../../assets/icons/plus.png";
 import news from "../../assets/icons/news.png";
 import catalog from "../../assets/icons/legoBrick.png";
+import write from "../../assets/icons/write.png";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
@@ -129,12 +130,6 @@ export default function MenuUser() {
             Catalogue
           </NavLink>
         </li>
-        <li className="block bg-gradient-to-r from-transparent via-[#780000]/90 to-transparent h-[0.1rem]"></li>
-        <li>
-          <NavLink className="text-base" to="#">
-            Chercher un utilisateur
-          </NavLink>
-        </li>
       </ul>
 
       {/* ////////// MENU USER SLIDE FROM RIGHT //////////// */}
@@ -175,6 +170,17 @@ export default function MenuUser() {
               Gérer mon compte
             </NavLink>
           </li>
+          {userDatas?.role == "admin" && (
+            <li className="bg-gradient-to-r from-transparent via-[#669BBC]/90 to-transparent h-[0.15rem]"></li>
+          )}
+          {userDatas?.role == "admin" && (
+            <li className="flex gap-[0.5rem] items-center hover:bg-[#084667] transition-all duration-300 p-[0.6rem] rounded-md">
+              <img src={write} className="w-[1rem] h-[1rem]" />
+              <NavLink className="text-base" to="/newpost">
+                Rédiger un post
+              </NavLink>
+            </li>
+          )}
         </ul>
         <button
           onClick={() => disconnect()}

@@ -18,7 +18,6 @@ export default function AddToWishlist({ set_num }) {
   const isInCollec = userCollection.some((i) => i.set_num === set_num);
 
   function addSetToWishlist() {
-    console.log("collec", isInCollec, "wishlist:", isInWishlist);
     !isInWishlist &&
       !isInCollec &&
       axios
