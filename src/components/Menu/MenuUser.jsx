@@ -166,7 +166,7 @@ export default function MenuUser() {
           <li className="bg-gradient-to-r from-transparent via-[#669BBC]/90 to-transparent h-[0.15rem]"></li>
           <li className="flex gap-[0.5rem] items-center hover:bg-[#084667] transition-all duration-300 p-[0.6rem] rounded-md">
             <img src={parametres} className="w-[1rem] h-[1rem]" />
-            <NavLink className="text-base" to="#">
+            <NavLink className="text-base" to="/modifyaccount">
               Gérer mon compte
             </NavLink>
           </li>
