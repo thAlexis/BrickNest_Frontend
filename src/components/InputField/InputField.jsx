@@ -5,6 +5,7 @@ export default function InputField({
   register,
   errors,
   touchedFields,
+  defaultValue = "",
 }) {
   return (
     <>
@@ -16,6 +17,7 @@ export default function InputField({
         type={type}
         {...register(name)}
         name={name}
+        defaultValue={defaultValue}
       />
       <div className="h-[1rem] flex w-[100%] justify-center lg:justify-start">
         {name !== "password"

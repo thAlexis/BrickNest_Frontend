@@ -15,6 +15,7 @@ import Unauthorized from "../views/ErrorsPages/Unauthorized.jsx";
 import NewPostForm from "../views/NewPostForm.jsx";
 import Post from "../views/Post.jsx";
 import ModifyPost from "../views/ModifyPost.jsx";
+import ModifyAccount from "../views/ModifyAccount.jsx";
 
 export default function AppRoutes() {
   const { userDatas } = useContext(UserContext);
@@ -36,6 +37,7 @@ export default function AppRoutes() {
       <Route path="/newpost" element={<NewPostForm />} />
       <Route path="/modifypost/:postid" element={<ModifyPost />} />
       <Route path="/post/:postid" element={<Post />} />
+      {userDatas && <Route path="/modifyaccount" element={<ModifyAccount />} />}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
