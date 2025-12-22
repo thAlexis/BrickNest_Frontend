@@ -42,7 +42,7 @@ export default function AccountForm() {
     <div className="flex justify-center h-[85vh]">
       <form
         onSubmit={handleSubmit(updateAccount)}
-        className="w-[80%] mt-[2rem]  flex flex-col"
+        className="w-[80%] md:w-[60%] lg:w-[40%] mt-[2rem]  flex flex-col"
       >
         <InputField
           name="lastname"
