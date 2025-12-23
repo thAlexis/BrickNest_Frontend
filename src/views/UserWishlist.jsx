@@ -53,7 +53,7 @@ export default function UserWishlist() {
 
   if (userWishlist.length === 0)
     return (
-      <div className="mt-[8rem] w-[100%] flex justify-center">
+      <div className="mt-[8rem] mb-[80vh] w-[100%] flex justify-center">
         <Link
           className="bg-[#780000] text-white p-[1rem] rounded-[1rem] cursor-pointer hover:scale-[110%] transition-all duration-100"
           to="/catalog"

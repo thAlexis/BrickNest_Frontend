@@ -18,7 +18,7 @@ export default function HomePage() {
             que vous convoitez.
           </p>
           <NavLink
-            className="font-bold bg-[#003049] hover:bg-[#669BBC] p-[1rem] rounded-md shadow-sm cursor-pointer"
+            className="font-bold bg-[#003049] hover:bg-[#669BBC] p-[1rem] transition-all rounded-md shadow-sm cursor-pointer"
             to="/register"
           >
             S'inscrire

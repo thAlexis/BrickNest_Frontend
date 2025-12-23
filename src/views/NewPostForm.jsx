@@ -42,7 +42,7 @@ export default function NewPostForm() {
   }, [userDatas]);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-[20vh]">
       <div className="bg-[#780000] pt-[2rem] pb-[2rem] w-[90%] lg:w-[60%] p-[0.5rem] rounded-[1rem] flex justify-center items-center mt-[7rem] lg:mt-[10rem] lg:mb-[3rem] flex-col text-white">
         <h1 className="font-robotoCond font-[700] text-3xl md:text-4xl lg:text-5xl">
           Rédiger un nouvel article
