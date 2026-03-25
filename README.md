@@ -46,6 +46,40 @@ npm run dev
 
 # Note : Vérifiez que le script "dev" utilise bien "concurrently" pour cibler les deux dossiers.
 
+## 🌍 Déploiement en Production (Vercel)
+
+L'application est optimisée pour un déploiement continu via **Vercel**, qui s'intègre nativement avec l'écosystème React/Vite.
+
+### 1. Préparation
+
+Assurez-vous que votre projet est poussé sur un dépôt GitHub, GitLab ou Bitbucket.
+
+### 2. Configuration sur Vercel
+
+1.  Connectez-vous à votre tableau de bord Vercel.
+2.  Cliquez sur **"Add New Project"** et importez le dépôt `bricknest_frontend`.
+3.  Vercel détectera automatiquement que vous utilisez **Vite**.
+    - **Framework Preset :** Vite
+    - **Root Directory :** `./`
+    - **Build Command :** `npm run build`
+    - **Output Directory :** `dist`
+
+### 3. Variables d'Environnement
+
+Dans la section **"Environment Variables"** du projet Vercel, ajoutez l'URL de votre API de production :
+
+- **NAME :** `VITE_API_URL`
+- **VALUE :** `https://bricknest-backend.vercel.app` (Exemple d'URL API)
+
+### 4. Déploiement
+
+Cliquez sur **Deploy**. Vercel va :
+
+1.  Installer les dépendances.
+2.  Lancer le script de build.
+3.  Générer une URL unique (ex: `https://bricknest.vercel.app`).
+4.  À chaque nouveau `git push` sur la branche main, le site sera redéployé automatiquement (CI/CD).
+
 🛠️ Stack Technique
 Framework : React
 
